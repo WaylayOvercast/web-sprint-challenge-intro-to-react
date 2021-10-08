@@ -2,6 +2,7 @@
 import react, {useEffect, useState} from "react";
 import styled from "styled-components";
 
+
 const Birth = styled.p`
     padding: .7% 0% 0% 0%;
     width:15%;
@@ -40,25 +41,30 @@ const Info =styled.button`
     width: 6%;
     font-size: 3rem;
 `   
+const Pop =styled.div`
+    width:100%;
+    background-color: black;
+    height: 500px;
+`
+
+const character =(props)=>{  
 
 
-const character =(props)=>{
 
     const {names} = props
-
+    console.log(names)
     return(
-        <BigDivvy>
-            {names.map(e => (
-                <LilDivvy className='character'>
-                    <Info>&#x2b07;</Info>
-                    <Name className='name'>{e.name}</Name>
+        <BigDivvy key= 'big'>
+            {names.map(e => ( 
+                <LilDivvy key={e.created}>
+                    <Info key={e.edited}>&#x2b07;</Info>
+                    <Name key={e.mass}>{e.name}</Name>
                     <Birth>{`DOB: ${e.birth_year}`}</Birth>
                 </LilDivvy>))}
         </BigDivvy>
     )
 
 }
-
 
 
 
